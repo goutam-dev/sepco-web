@@ -11,17 +11,29 @@ const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
 // HoverLabel component adds smooth hover animation and color transition
-const HoverLabel = ({ text }) => {
+const HoverLabel = ({ text, styles }) => {
   const [hover, setHover] = useState(false);
   return (
     <span
-      style={{
-        display: "inline-block",
-        transition: "transform 0.3s, color 0.3s",
-        transform: hover ? "translateY(-2px)" : "translateY(0)",
-        color: hover ? "#FFD700" : "inherit", // golden on hover
-        cursor: "pointer",
-      }}
+      style={
+        styles
+          ? {
+              ...{
+                display: "inline-block",
+                transition: "transform 0.3s, color 0.3s",
+                transform: hover ? "translateY(-2px)" : "translateY(0)",
+                color: hover ? "#FFD700" : "black", // golden on hover
+                cursor: "pointer",
+              },
+            }
+          : {
+              display: "inline-block",
+              transition: "transform 0.3s, color 0.3s",
+              transform: hover ? "translateY(-2px)" : "translateY(0)",
+              color: hover ? "#FFD700" : "white", // golden on hover
+              cursor: "pointer",
+            }
+      }
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -39,27 +51,36 @@ const createMenuItems = () => [
     children: [
       {
         key: "board-of-directors",
-        label: <HoverLabel text="Board of Directors" />,
+        label: <HoverLabel text="Board of Directors" styles="a" />,
       },
       {
         key: "senior-management",
-        label: <HoverLabel text="Senior Management" />,
+        label: <HoverLabel text="Senior Management" styles="a" />,
       },
       {
         key: "area-of-responsibility",
-        label: <HoverLabel text="Area of Responsibility" />,
+        label: <HoverLabel text="Area of Responsibility" styles="a" />,
       },
-      { key: "key-statistics", label: <HoverLabel text="Key Statistics" /> },
-      { key: "maps", label: <HoverLabel text="Maps" /> },
-      { key: "organogram", label: <HoverLabel text="Organogram" /> },
-      { key: "customers", label: <HoverLabel text="Customers" /> },
-      { key: "what-we-do", label: <HoverLabel text="What We Do" /> },
-      { key: "the-ministry", label: <HoverLabel text="The Ministry" /> },
+      {
+        key: "key-statistics",
+        label: <HoverLabel text="Key Statistics" styles="a" />,
+      },
+      { key: "maps", label: <HoverLabel text="Maps" styles="a" /> },
+      { key: "organogram", label: <HoverLabel text="Organogram" styles="a" /> },
+      { key: "customers", label: <HoverLabel text="Customers" styles="a" /> },
+      { key: "what-we-do", label: <HoverLabel text="What We Do" styles="a" /> },
+      {
+        key: "the-ministry",
+        label: <HoverLabel text="The Ministry" styles="a" />,
+      },
       {
         key: "vision-mission-values",
-        label: <HoverLabel text="Vision Mission And Values" />,
+        label: <HoverLabel text="Vision Mission And Values" styles="a" />,
       },
-      { key: "image-gallery", label: <HoverLabel text="Image Gallery" /> },
+      {
+        key: "image-gallery",
+        label: <HoverLabel text="Image Gallery" styles="a" />,
+      },
     ],
   },
   {
@@ -68,30 +89,41 @@ const createMenuItems = () => [
     children: [
       {
         key: "load-management-schedule",
-        label: <HoverLabel text="Load Management Schedule" />,
+        label: <HoverLabel text="Load Management Schedule" styles="a" />,
       },
       {
         key: "tariff-wise-billing",
-        label: <HoverLabel text="Tariff-Wise Billing/Collection" />,
+        label: <HoverLabel text="Tariff-Wise Billing/Collection" styles="a" />,
       },
       {
         key: "daily-monthly-quarterly-reports",
-        label: <HoverLabel text="Daily, Monthly And Quarterly Reports" />,
+        label: (
+          <HoverLabel text="Daily, Monthly And Quarterly Reports" styles="a" />
+        ),
       },
-      { key: "tariff-guide", label: <HoverLabel text="Tariff Guide" /> },
+      {
+        key: "tariff-guide",
+        label: <HoverLabel text="Tariff Guide" styles="a" />,
+      },
       {
         key: "complaint-management-cell",
-        label: <HoverLabel text="Complaint Management Cell" />,
+        label: <HoverLabel text="Complaint Management Cell" styles="a" />,
       },
-      { key: "bill-estimator", label: <HoverLabel text="Bill Estimator" /> },
-      { key: "duplicate-bill", label: <HoverLabel text="Duplicate Bill" /> },
+      {
+        key: "bill-estimator",
+        label: <HoverLabel text="Bill Estimator" styles="a" />,
+      },
+      {
+        key: "duplicate-bill",
+        label: <HoverLabel text="Duplicate Bill" styles="a" />,
+      },
       {
         key: "new-connection-cost-calculator",
-        label: <HoverLabel text="New Connection Cost Calculator" />,
+        label: <HoverLabel text="New Connection Cost Calculator" styles="a" />,
       },
       {
         key: "new-connection-application",
-        label: <HoverLabel text="New Connection Application" />,
+        label: <HoverLabel text="New Connection Application" styles="a" />,
       },
     ],
   },
@@ -101,22 +133,28 @@ const createMenuItems = () => [
     children: [
       {
         key: "load-shedding-schedule",
-        label: <HoverLabel text="Load Shedding Schedule" />,
+        label: <HoverLabel text="Load Shedding Schedule" styles="a" />,
       },
       {
         key: "tariff-guide-download",
-        label: <HoverLabel text="Tariff Guide" />,
+        label: <HoverLabel text="Tariff Guide" styles="a" />,
       },
       {
         key: "orders-notifications",
-        label: <HoverLabel text="Orders & Notifications" />,
+        label: <HoverLabel text="Orders & Notifications" styles="a" />,
       },
-      { key: "others", label: <HoverLabel text="Others" /> },
-      { key: "seniority-lists", label: <HoverLabel text="Seniority Lists" /> },
+      { key: "others", label: <HoverLabel text="Others" styles="a" /> },
+      {
+        key: "seniority-lists",
+        label: <HoverLabel text="Seniority Lists" styles="a" />,
+      },
       {
         key: "pocket-book-usaid",
         label: (
-          <HoverLabel text="Pocket Book USAID For Power Distribution System" />
+          <HoverLabel
+            text="Pocket Book USAID For Power Distribution System"
+            styles="a"
+          />
         ),
       },
     ],
@@ -125,24 +163,29 @@ const createMenuItems = () => [
     key: "additional",
     label: <HoverLabel text="Additional" />,
     children: [
-      { key: "ami", label: <HoverLabel text="AMI" /> },
-      { key: "mirad", label: <HoverLabel text="MIRAD" /> },
+      { key: "ami", label: <HoverLabel text="AMI" styles="a" /> },
+      { key: "mirad", label: <HoverLabel text="MIRAD" styles="a" /> },
       {
         key: "erp-user-manuals",
-        label: <HoverLabel text="ERP (User Manuals)" />,
+        label: <HoverLabel text="ERP (User Manuals)" styles="a" />,
       },
-      { key: "net-metering", label: <HoverLabel text="NET Metering" /> },
+      {
+        key: "net-metering",
+        label: <HoverLabel text="NET Metering" styles="a" />,
+      },
       {
         key: "tax-deduction-certificate",
-        label: <HoverLabel text="Tax Deduction Certificate" />,
+        label: <HoverLabel text="Tax Deduction Certificate" styles="a" />,
       },
       {
         key: "consumer-cnic-registration",
-        label: <HoverLabel text="Consumer CNIC Registration" />,
+        label: <HoverLabel text="Consumer CNIC Registration" styles="a" />,
       },
       {
         key: "consumer-mobile-number-registration",
-        label: <HoverLabel text="Consumer Mobile Number Registration" />,
+        label: (
+          <HoverLabel text="Consumer Mobile Number Registration" styles="a" />
+        ),
       },
     ],
   },
@@ -150,7 +193,7 @@ const createMenuItems = () => [
   { key: "careers", label: <HoverLabel text="Careers" /> },
 ];
 
-const HeaderComponent = ({ logoLeft, logoRight }) => {
+const HeaderComponent = ({ logoLeft, title, logoRight }) => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const screens = useBreakpoint();
   const isMobile = !screens.md;
@@ -168,13 +211,14 @@ const HeaderComponent = ({ logoLeft, logoRight }) => {
     top: 0,
     width: "100%",
     zIndex: 1000,
-    background: "#ffffff",
+    background: "#0f224a", // navy blue
     boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
     padding: "0 16px",
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
     transition: "padding 0.3s, box-shadow 0.3s",
+    height: "fit-content",
   };
 
   const titleStyle = {
@@ -183,15 +227,11 @@ const HeaderComponent = ({ logoLeft, logoRight }) => {
     flexShrink: 0,
     lineHeight: isMobile ? "1.2" : "inherit",
     color: "#0f5078",
-    fontFamily: "Roboto, sans-serif",
-    fontSize: titleFontSize,
-    fontWeight: 500,
     transition: "transform 0.3s",
   };
 
   // Logo hover effect state
-  const [hoverLeft, setHoverLeft] = useState(false);
-  const [hoverRight, setHoverRight] = useState(false);
+  const [hoverTitle, setHoverTitle] = useState(false);
 
   const logoStyleBase = {
     height: logoHeight,
@@ -212,40 +252,46 @@ const HeaderComponent = ({ logoLeft, logoRight }) => {
 
   return (
     <Header style={headerStyle}>
-      {/* Left logo with hover effect */}
       {logoLeft && (
         <img
           src={logoLeft}
-          alt="Logo Left"
+          alt="Sepco Logo"
           style={{
             ...logoStyleBase,
-            transform: hoverLeft ? "scale(1.1)" : "scale(1)",
-            boxShadow: hoverLeft ? "0 4px 12px rgba(0,0,0,0.2)" : "none",
-            minHeight: "27px",
+            height: "70px",
           }}
-          onMouseEnter={() => setHoverLeft(true)}
-          onMouseLeave={() => setHoverLeft(false)}
+        />
+      )}
+      <Title>
+        <img
+          src={title}
+          alt="Title"
+          style={{
+            ...titleStyle,
+            height: "70px",
+            transform: hoverTitle ? "scale(1.1)" : "scale(1)",
+            boxShadow: hoverTitle ? "0 4px 12px rgba(0,0,0,0.2)" : "none",
+            borderRadius: "0", // No outline or border radius
+            transition: "transform 0.3s, box-shadow 0.3s",
+            cursor: "pointer",
+          }}
+          onMouseEnter={() => setHoverTitle(true)}
+          onMouseLeave={() => setHoverTitle(false)}
+        />
+      </Title>
+
+      {/* Right logo without hover effect */}
+      {!isMobile && logoRight && (
+        <img
+          src={logoRight}
+          alt="Logo Right"
+          style={{
+            ...logoStyleBase,
+            borderRadius: "50%",
+          }}
         />
       )}
 
-      {/* Heading with subtle hover lift */}
-      <Title
-        level={1}
-        style={titleStyle}
-        onMouseEnter={(e) =>
-          (e.currentTarget.style.transform = "translateY(-2px)")
-        }
-        onMouseLeave={(e) =>
-          (e.currentTarget.style.transform = "translateY(0)")
-        }
-      >
-        Sukkur Electric Power Company
-      </Title>
-
-      {/* Spacer */}
-      <div style={{ flex: 1 }} />
-
-      {/* Desktop Menu */}
       {!isMobile && (
         <Menu
           mode="horizontal"
@@ -255,30 +301,13 @@ const HeaderComponent = ({ logoLeft, logoRight }) => {
         />
       )}
 
-      {/* Right logo with hover effect */}
-      {!isMobile && logoRight && (
-        <img
-          src={logoRight}
-          alt="Logo Right"
-          style={{
-            ...logoStyleBase,
-            transform: hoverRight ? "scale(1.1)" : "scale(1)",
-            boxShadow: hoverRight ? "0 4px 12px rgba(0,0,0,0.2)" : "none",
-            backgroundColor: "green",
-            borderRadius: "50%",
-          }}
-          onMouseEnter={() => setHoverRight(true)}
-          onMouseLeave={() => setHoverRight(false)}
-        />
-      )}
-
       {/* Mobile Hamburger */}
       {isMobile && (
         <MenuOutlined
           onClick={showDrawer}
           style={{
             fontSize: 24,
-            color: "#0f5078",
+            color: "#fff",
             marginLeft: 12,
             transition: "color 0.3s",
           }}
@@ -319,7 +348,6 @@ const HeaderComponent = ({ logoLeft, logoRight }) => {
         onClose={closeDrawer}
         open={drawerVisible}
         bodyStyle={{ padding: 0 }}
-        style={{}}
       >
         <Menu
           mode="inline"
@@ -328,6 +356,7 @@ const HeaderComponent = ({ logoLeft, logoRight }) => {
             borderRight: "none",
             fontFamily: "Roboto, sans-serif",
             fontSize: menuFontSize,
+            backgroundColor: "rgb(15, 80, 120)",
           }}
           onClick={closeDrawer}
         />
