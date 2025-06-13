@@ -4,7 +4,7 @@ import Header from "../Components/Header";
 function Layout() {
   return (
     <>
-      <Header logoLeft={"/sepco_logo.png"} logoRight={"/mop.png"} />
+      <Header logoLeft={"/sepco_logo.png"} title={"/sepco_text.png"} logoRight={"/mop.png"} />
       <Outlet />
     </>
   );
