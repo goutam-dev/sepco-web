@@ -5,12 +5,7 @@ import Footer from "../Components/Footer";
 function Layout() {
   return (
     <>
-      <Header
-        logoLeft={"/sepco_logo.png"}
-        title={"/sepco_text.png"}
-        logoRight={"/mop.png"}
-      />
-      <h1>Helo</h1>
+      <Header logoLeft={"/sepco_logo.png"} title={"/sepco_text.png"} logoRight={"/mop.png"} />
       <Outlet />
       <Footer />
     </>

@@ -218,7 +218,7 @@ const HeaderComponent = ({ logoLeft, title, logoRight }) => {
     alignItems: "center",
     flexWrap: "wrap",
     transition: "padding 0.3s, box-shadow 0.3s",
-    height: "fit-content",
+    height: "fit-content"
   };
 
   const titleStyle = {
@@ -356,7 +356,7 @@ const HeaderComponent = ({ logoLeft, title, logoRight }) => {
             borderRight: "none",
             fontFamily: "Roboto, sans-serif",
             fontSize: menuFontSize,
-            backgroundColor: "rgb(15, 80, 120)",
+            backgroundColor: 'rgb(15, 80, 120)'
           }}
           onClick={closeDrawer}
         />
